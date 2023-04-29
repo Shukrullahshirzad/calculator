@@ -4,15 +4,52 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <!-- external stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
   <title>Frontend Mentor | Calculator app</title>
 </head>
 <body>
+  <div class="container">
+    <header class="header">
+      <p>calc</p>
+      <p>theme</p>
+      <label for="theme">1 2 3</label>
+      <input type="range" name="theme" id="theme" max="2" step="1">
+    </header>
+    <div class="screen">
+      <div class="resutl">123</div>
+      <div class="currentNumber">23344</div>
+    </div>
+    <div class="buttons">
+      <div class="calc-btn ">7</div>
+      <div class="calc-btn ">8</div>
+      <div class="calc-btn ">9</div>
+      <div class="calc-btn func">del</div>
+      <div class="calc-btn ">4</div>
+      <div class="calc-btn ">5</div>
+      <div class="calc-btn ">6</div>
+      <div class="calc-btn func">+</div>
+      <div class="calc-btn ">1</div>
+      <div class="calc-btn ">2</div>
+      <div class="calc-btn ">3</div>
+      <div class="calc-btn func">-</div>
+      <div class="calc-btn ">.</div>
+      <div class="calc-btn ">0</div>
+      <div class="calc-btn func">/</div>
+      <div class="calc-btn func">x</div>
+      <div class="calc-btn func reset">reset</div>
+      <div class="calc-btn func equal">=</div>
+    </div>
+  </div>
 
 
   
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Coded by <a href="https://twitter.com/cooolCoder">@cooolcoder</a>.
   </div>
+  <script src="index.js"></script>
 </body>
 </html>

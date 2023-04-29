@@ -17,44 +17,89 @@
     
     /* Theme 2 */
         /* Backgrounds  */
-    --light-gray-main-gb: hsl(0, 0%, 90%);
-    --grayish-red-toggle-bg: hsl(0, 5%, 81%);
-    --keypad-bg: hsl(0, 5%, 81%); 
-    --very-light-gray-screen-bg: hsl(0, 0%, 93%);
+    --light-gray-main-gb:       hsl(0, 0%, 90%);
+    --grayish-red-toggle-bg:    hsl(0, 5%, 81%);
+    --keypad-bg:                hsl(0, 5%, 81%); 
+    --very-light-gray-screen-bg:hsl(0, 0%, 93%);
         /* Keys  */
-    --dark-moderate-cyan-kbg: hsl(185, 42%, 37%); 
-    --very-dark-cyan-ks: hsl(185, 58%, 25%);
-    --orange-kbg-toggle: hsl(25, 98%, 40%);
-    --dark-orange-ks: hsl(25, 99%, 27%);
+    --dark-moderate-cyan-kbg:   hsl(185, 42%, 37%); 
+    --very-dark-cyan-ks:        hsl(185, 58%, 25%);
+    --orange-kbg-toggle:        hsl(25, 98%, 40%);
+    --dark-orange-ks:           hsl(25, 99%, 27%);
     --light-grayish-yellow-key-bg: hsl(45, 7%, 89%);
-    -dark-grayish-orange-ks: hsl(35, 11%, 61%);
+    -dark-grayish-orange-ks:    hsl(35, 11%, 61%);
         /* Text  */
     --very-dark-grayish-yellow: hsl(60, 10%, 19%);
-    --white: hsl(0, 0%, 100%);
+    --white:                    hsl(0, 0%, 100%);
 
     /* Theme 3  */
         /* Backgrounds  */
     --very-dark-violet-main-bg: hsl(268, 75%, 9%);
     --very-dark-violet-toggle-bg:hsl(268, 71%, 12%);
-    --keypad-bg: hsl(268, 71%, 12%); 
-    --screen-bg: hsl(268, 71%, 12%);
+    --keypad-bg:                hsl(268, 71%, 12%); 
+    --screen-bg:                hsl(268, 71%, 12%);
         /* Keys  */
-    --dark-violet-key-bg: hsl(281, 89%, 26%);
-    --vivid-magenta-ks: hsl(285, 91%, 52%);
-    --pure-cyan-key-bg-toggle: hsl(176, 100%, 44%);
-    --soft-cyan-ks: hsl(177, 92%, 70%);
-    --very-dark-violet-key-bg: hsl(268, 47%, 21%);
-    --dark-magenta-ks: hsl(290, 70%, 36%);
+    --dark-violet-key-bg:       hsl(281, 89%, 26%);
+    --vivid-magenta-ks:         hsl(285, 91%, 52%);
+    --pure-cyan-key-bg-toggle:  hsl(176, 100%, 44%);
+    --soft-cyan-ks:             hsl(177, 92%, 70%);
+    --very-dark-violet-key-bg:  hsl(268, 47%, 21%);
+    --dark-magenta-ks:          hsl(290, 70%, 36%);
         /* Text  */
-    --light-yellow: hsl(52, 100%, 62%);
-    --very-dark-blue: hsl(198, 20%, 13%);
-    --white: hsl(0, 0%, 100%);
-}
-.attribution {
-    font-size: 11px;
-    text-align: center;
+    --light-yellow:             hsl(52, 100%, 62%);
+    --very-dark-blue:           hsl(198, 20%, 13%);
+    --white:                    hsl(0, 0%, 100%);
 }
 
+*, *::after, *::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: var(--very-dark-desaturated-blue-main-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.container{
+    width: 300px;
+    background-color: aqua;
+}
+.header{
+    display: flex;
+    background-color: transparent;
+}
+.screen{
+    width: 90%;
+    height: 20%;
+    background-color: var(--screen-bg);
+    margin: .7rem auto;
+
+}
+.buttons{
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .5rem;
+    margin: .5rem auto;
+    background-color: var(--keypad-bg);
+    text-align: center;
+    padding: 1rem;
+
+}
+.calc-btn{
+    background-color: var(--light-grayish-orange-kbg);
+    padding: .4rem;
+    border-radius: .2rem;
+}
+.attribution {
+    font-size: 13px;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}
 .attribution a {
     color: hsl(228, 45%, 44%);
 }
