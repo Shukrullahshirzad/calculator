@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <!-- google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 
   <!-- external stylesheet -->
@@ -14,9 +18,11 @@
   <div class="container">
     <header class="header">
       <p>calc</p>
-      <p>theme</p>
-      <label for="theme">1 2 3</label>
-      <input type="range" name="theme" id="theme" max="2" step="1">
+      <div class="themeSelector">
+        <p>theme</p>
+        <label for="theme"><span>1</span><span>2</span><span>3</span></label>
+        <input type="range" name="theme" id="theme" max="2" step="1">
+      </div>
     </header>
     <div class="screen">
       <div class="resutl">123</div>
@@ -26,7 +32,7 @@
       <div class="calc-btn ">7</div>
       <div class="calc-btn ">8</div>
       <div class="calc-btn ">9</div>
-      <div class="calc-btn func">del</div>
+      <div class="calc-btn func erase">del</div>
       <div class="calc-btn ">4</div>
       <div class="calc-btn ">5</div>
       <div class="calc-btn ">6</div>
@@ -39,7 +45,7 @@
       <div class="calc-btn ">0</div>
       <div class="calc-btn func">/</div>
       <div class="calc-btn func">x</div>
-      <div class="calc-btn func reset">reset</div>
+      <div class="calc-btn func reset erase">reset</div>
       <div class="calc-btn func equal">=</div>
     </div>
   </div>

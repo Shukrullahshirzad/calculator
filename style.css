@@ -9,8 +9,8 @@
     --desaturated-dark-blue-ks : hsl(224, 28%, 35%);
     --key-bg-toggle:             hsl(6, 63%, 50%);
     --dark-red-ks:               hsl(6, 70%, 34%); 
-    --light-grayish-orange-kbg:  hsl(30, 25%, 89%);
-    --grayish-orange-ks:         hsl(28, 16%, 65%);
+    --light-grayish-orange-kbg:  #eae3dc;
+    --grayish-orange-ks:         #b4a597;
         /* Text colors */
     --very-dark-grayish-blue:    hsl(221, 14%, 31%); 
     --white:                     hsl(0, 0%, 100%);
@@ -62,37 +62,112 @@ body{
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    font-family: 'League Spartan', sans-serif;
 }
 .container{
     width: 300px;
-    background-color: aqua;
+    border-radius: .4rem;
+    padding: 0.4rem;
 }
 .header{
+    width: 90%;
+    margin: 0 auto;
     display: flex;
-    background-color: transparent;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--white);
 }
+ /* style range input for the theme selector */
+ .themeSelector{
+    display: flex;
+    position: relative;
+    text-transform: uppercase;
+    justify-content: space-between;
+    align-items: center;
+    height: 2rem;
+    width: 5rem;
+    /* background-color: aqua; */
+    font-size: .6rem;
+ }
+label{
+    display: flex;
+    
+    justify-content: space-between;
+    position: absolute;
+    width: 2rem;
+    right: 5px;
+    top: 0;
+}
+input[type="range"] {
+    width: 2.5rem;
+    height: 1rem;
+    margin: 0;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: var(--screen-bg);
+    border-radius: .5rem;
+    cursor: pointer;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+    background: #053a5f;
+    height: 0.9rem;
+    border-radius: .5rem;
+    background-color: transparent;
+    padding: 2.5px;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    /* margin: 2px; Centers thumb on the track */
+    background-color: var(--key-bg-toggle);
+    height: 0.6rem;
+    width: 0.6rem;
+    border-radius: 50%
+
+}
+
 .screen{
     width: 90%;
-    height: 20%;
+    height: 4rem;
     background-color: var(--screen-bg);
     margin: .7rem auto;
+    border-radius: .5rem;
+    color: var(--white);
+    padding: .5rem;
 
 }
 .buttons{
     width: 90%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: .5rem;
+    gap: .7rem;
     margin: .5rem auto;
     background-color: var(--keypad-bg);
     text-align: center;
     padding: 1rem;
+    border-radius: .4rem;
 
 }
 .calc-btn{
     background-color: var(--light-grayish-orange-kbg);
     padding: .4rem;
     border-radius: .2rem;
+    box-shadow: 0px 1px 1px 1px var(--grayish-orange-ks);
+    cursor: pointer;
+}
+.reset{
+    grid-column:1/3;
+}
+.equal{
+    grid-column: 3/5;
+    color: var(--white);
+    background-color: var(--key-bg-toggle);
+    box-shadow: 0px 1px 1px 1px var(--key-bg-toggle);
+}
+.erase{
+    color: var(--white);
+    background-color: var(--desaturated-dark-blue-kbg);
+    box-shadow: 0px 1px 1px 1px var(--desaturated-dark-blue-ks);
 }
 .attribution {
     font-size: 13px;
