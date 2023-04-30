@@ -63,6 +63,7 @@ body{
     justify-content: center;
     min-height: 100vh;
     font-family: 'League Spartan', sans-serif;
+    user-select: none; /* prevent text selection when user double clicks the buttons */
 }
 .container{
     width: 300px;
@@ -122,10 +123,8 @@ input[type="range"]::-webkit-slider-thumb {
     background-color: var(--key-bg-toggle);
     height: 0.6rem;
     width: 0.6rem;
-    border-radius: 50%
-
+    border-radius: 50%;
 }
-
 .screen{
     width: 90%;
     height: 4rem;
@@ -134,11 +133,24 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: .5rem;
     color: var(--white);
     padding: .5rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.currentNumber{
+    font-size: 1.5rem;
 
 }
+.result{
+    font-size: 0.8rem;
+    display: none;
+}
+
 .buttons{
     width: 90%;
     display: grid;
+    text-transform: uppercase;
     grid-template-columns: repeat(4, 1fr);
     gap: .7rem;
     margin: .5rem auto;
@@ -150,10 +162,15 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .calc-btn{
     background-color: var(--light-grayish-orange-kbg);
-    padding: .4rem;
+    padding: .5rem;
     border-radius: .2rem;
     box-shadow: 0px 1px 1px 1px var(--grayish-orange-ks);
     cursor: pointer;
+    transition: all 0.2s;
+    
+}
+.calc-btn:active{
+    transform: translateY(2px);
 }
 .reset{
     grid-column:1/3;
