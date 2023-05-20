@@ -25,11 +25,36 @@ themeBtn.addEventListener("input", ()=>{
 //================= change-theme end ================
 
 //================= working with dispaly ================
-// add selected numbers to display
 
+function setNumberDisplay(number){
+    const stringNumber = number.toString();
+    const integerDigits = parseFloat(stringNumber.split('.')[0]);
+    const decimalDigits = stringNumber.split('.')[1];
+    let integerDisplay
+    if(isNaN(integerDigits)){
+        integerDisplay = "";
+    }
+    else{
+        integerDisplay = integerDigits.toLocaleString('en', {maximumFractionDigits: 0})
+    }
+    if(decimalDigits !=null){
+        return `${integerDisplay}.${decimalDigits}`
+    }
+    else{
+        return integerDisplay
+    }
+}
+let intake = "";
+function appendNumber(x){
+    intake += x;
+}
+function updateDisplay(){
+    display.textContent = setNumberDisplay(intake)
+}
+// add selected numbers to display
 let buttons = Array.from(document.querySelectorAll(".num"));
-for(let i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", (e)=>{
+buttons.forEach(button=>{
+    button.addEventListener("click", (e)=>{
         if(display.textContent.includes(".")){
             // this will prevent adding decimal point
             // if it already has one
@@ -37,14 +62,16 @@ for(let i = 0; i < buttons.length; i++) {
                 display.textContent += "" 
             }
             else{
-                display.textContent += e.target.textContent;
+                appendNumber(e.target.textContent)
+                updateDisplay()
             }
         }
         else{
-            display.textContent += e.target.textContent;
+            appendNumber(e.target.textContent)
+            updateDisplay()
         }
     })
-}
+}) 
 
 let operator = "";
 let operatorBtn = Array.from(document.querySelectorAll(".op"));
@@ -61,9 +88,10 @@ operatorBtn.forEach((btn)=>{
         }
         else if(display2.textContent == "" && display.textContent !== ""){
             operator = e.target.textContent;
-            num1 = parseInt(display.textContent);
+            num1 = parseInt(display.textContent.split(',').join(''));
             display2.textContent = `${num1} ${operator}`
             display.textContent = "";
+            intake = "";
         }
         else if(display2.textContent !== "" && display.textContent !== ""){
             num2 = parseInt(display.textContent);
@@ -71,13 +99,13 @@ operatorBtn.forEach((btn)=>{
             num1 = result;
             operator = e.target.textContent;
             display.textContent = "";
+            intake = ""
             if(result % 1 == 0){
                 display2.textContent = `${result} ${operator}`;
             }
             else{
                 display2.textContent = `${result.toFixed(3)} ${operator}`;
             }
-            console.log(num1, num2, operator);
         }
     })
 });
