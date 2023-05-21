@@ -51,6 +51,11 @@ function appendNumber(x){
 function updateDisplay(){
     display.textContent = setNumberDisplay(intake)
 }
+function reset(){
+    display.textContent = "";
+    intake = "";
+    display2.textContent = "";
+}
 // add selected numbers to display
 let buttons = Array.from(document.querySelectorAll(".num"));
 buttons.forEach(button=>{
@@ -59,7 +64,7 @@ buttons.forEach(button=>{
             // this will prevent adding decimal point
             // if it already has one
             if(e.target.textContent == "."){
-                display.textContent += "" 
+                return
             }
             else{
                 appendNumber(e.target.textContent)
@@ -78,48 +83,40 @@ let operatorBtn = Array.from(document.querySelectorAll(".op"));
 operatorBtn.forEach((btn)=>{
     btn.addEventListener("click", (e)=>{
         if(display.textContent == "" && display2.textContent == ""){
-            display.textContent = "";
-            display2.textContent = "";
-            operator = "";
-        }
-        else if( display.textContent == "" && display2.textContent !== ""){
-            operator = e.target.textContent;
-            display2.textContent = `${num1} ${operator}`
+            return
         }
         else if(display2.textContent == "" && display.textContent !== ""){
             operator = e.target.textContent;
-            num1 = parseInt(display.textContent.split(',').join(''));
-            display2.textContent = `${num1} ${operator}`
+            num1 = parseFloat(display.textContent.split(',').join(''));
+            display2.textContent = `${setNumberDisplay(num1)} ${operator}`
             display.textContent = "";
-            intake = "";
+            intake = ""
+        }
+        else if( display.textContent == "" && display2.textContent !== ""){
+            operator = e.target.textContent;
+            display2.textContent = `${setNumberDisplay(num1)} ${operator}`
         }
         else if(display2.textContent !== "" && display.textContent !== ""){
-            num2 = parseInt(display.textContent);
+            num2 = parseFloat(display.textContent.split(',').join(''));
             result = operate(num1, num2, operator);
             num1 = result;
             operator = e.target.textContent;
+            display2.textContent = `${setNumberDisplay(num1)} ${operator}`
             display.textContent = "";
-            intake = ""
-            if(result % 1 == 0){
-                display2.textContent = `${result} ${operator}`;
-            }
-            else{
-                display2.textContent = `${result.toFixed(3)} ${operator}`;
-            }
+            intake = "";
         }
     })
 });
 
 const delBtn = document.querySelector(".del");
 delBtn.addEventListener("click", (e)=>{
-    display.textContent = display.textContent.slice(0,-1);
-    
+    intake = intake.slice(0, -1);
+    updateDisplay()
 })
 
 const resetBtn = document.querySelector(".reset");
 resetBtn.addEventListener("click", ()=>{
-    display.textContent = "";
-    display2.textContent = "";
+    reset()
 })
 
 
@@ -154,15 +151,13 @@ function operate(num1, num2, operand){
 
 let equal = document.querySelector(".equal");
 equal.addEventListener("click", (e)=>{
-    num2 = parseInt(display.textContent);
+    if(display.textContent == ""){
+        return
+    }
+    else if(display2.textContent == "") return
+    num2 = parseFloat(display.textContent.split(',').join(''));
     display2.textContent = "";
     result = operate(num1, num2, operator);
-    if(result % 1 == 0){
-        display.textContent = result ;
-        display2.textContent = ""
-    }
-    else{
-        display.textContent = result.toFixed(3);
-        display2.textContent = "";
-    }
+    display.textContent = setNumberDisplay(result);
+    
 })
