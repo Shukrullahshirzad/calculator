@@ -159,5 +159,4 @@ equal.addEventListener("click", (e)=>{
     display2.textContent = "";
     result = operate(num1, num2, operator);
     display.textContent = setNumberDisplay(result);
-    
 })
