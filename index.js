@@ -38,7 +38,7 @@ function setNumberDisplay(number){
         integerDisplay = integerDigits.toLocaleString('en', {maximumFractionDigits: 0})
     }
     if(decimalDigits !=null){
-        return `${integerDisplay}.${decimalDigits}`
+        return `${integerDisplay}.${decimalDigits.slice(0, 3)}`
     }
     else{
         return integerDisplay
